@@ -45,4 +45,4 @@ def is_parentheses_matching(expression):
                 return False #ถ้าวงเล็บปิดเกินวงเล็บเปิดที่มี
     return myStack.is_empty()
 
-print(is_parentheses_matching("(((A+B)*C)"))
+print(is_parentheses_matching("((())))))))))))))A+B)*C))"))

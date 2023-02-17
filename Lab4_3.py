@@ -40,17 +40,17 @@ def infixToPostfix(expression):
         if x not in ["+", "-", "*", "/"]:
             result = result + x
         else:
-            if (stack1.size() == 2):
-                for _ in range(stack1.size()):
-                    result = result + stack1.pop()
-            elif stack1.size() > 0:
-                if (x in ["+", "-"]) and (stack1.stackTop() in ["*", "/"]):
+            if stack1.size() > 0:
+                if (x in ["+", "-"]) and (stack1.stackTop() in ["*", "/", "+", "-"]):
                     for _ in range(stack1.size()):
                         result = result + stack1.pop()
+                if (x in ["*", "/"]) and (stack1.stackTop() in ["*", "/"]):
+                    #for _ in range(stack1.size()):
+                    result = result + stack1.pop()
             stack1.push(x)
     if not stack1.is_empty():
         for _ in range(stack1.size()):
             result = result + stack1.pop()
     return result
 
-print(infixToPostfix("A+B*C-D/E"))
+print(infixToPostfix("A+B*C/D-E+F*G"))

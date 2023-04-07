@@ -1,0 +1,13 @@
+def cardToNum(list):
+    special = ["J", "Q", "K", "A"]
+    sign = ["♣", "♦", "♥", "♠"]
+    for i in range(len(list)):
+        list[i] = list[i].replace(list[i][-1], str(sign.index(list[i][-1])))
+        if(list[i][0] in special):
+            list[i] = (str(11 + int(special.index(list[i][0]))) + list[i][1:])
+    print(list)
+    return list
+        
+#insertionSort([23,78,45,8,32,56],5)
+
+insertionSort(['4♣', 'A♣', '10♥', 'K♦', '4♠', '10♣', '3♦', '7♥', '4♦'], 8)
